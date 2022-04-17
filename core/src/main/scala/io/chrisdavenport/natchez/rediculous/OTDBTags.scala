@@ -78,7 +78,7 @@ object OTDBTags {
       case Canceled() => 
         List("exit.case" -> "canceled")
       case Errored(e) => "exit.case" -> TraceValue.stringToTraceValue("errored") :: error(e)
-      case Succeeded(_) => List("exit.case" -> "suceeded")
+      case Succeeded(_) => List("exit.case" -> "succeeded")
     }
   }
 
