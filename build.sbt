@@ -23,7 +23,7 @@ val fs2V = "3.2.7"
 val http4sV = "0.23.11"
 val circeV = "0.14.1"
 val natchezV = "0.1.4"
-val rediculousV = "0.3.0"
+val rediculousV = "0.3.2"
 val munitCatsEffectV = "1.0.7"
 
 val slf4jV    = "1.7.30"
