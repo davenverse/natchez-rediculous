@@ -63,7 +63,7 @@ lazy val examples = project.in(file("examples"))
     scalacOptions        -= "-Xfatal-warnings",
     libraryDependencies ++= Seq(
       "org.tpolecat" %% "natchez-jaeger"      % natchezV,
-      "io.chrisdavenport" %% "natchez-http4s-otel" % "0.0.1",
+      "io.chrisdavenport" %% "natchez-http4s-otel" % "0.0.2",
       "org.http4s"   %% "http4s-dsl"          % http4sV,
       "org.http4s"   %% "http4s-ember-server" % http4sV,
       "org.slf4j"     % "slf4j-simple"        % slf4jV,
