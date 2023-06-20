@@ -9,6 +9,7 @@ import io.chrisdavenport.natchezhttp4sotel._
 import io.chrisdavenport.fiberlocal.GenFiberLocal
 import com.comcast.ip4s._
 import io.chrisdavenport.rediculous.RedisConnection
+import fs2.io.net.Network
 
 /**
  * Start up Jaeger thus:
@@ -30,11 +31,11 @@ import io.chrisdavenport.rediculous.RedisConnection
 object Http4sRediculousExample extends IOApp with Common {
 
   // Our main app resource
-  def server[F[_]: Async: GenFiberLocal]: Resource[F, Server] =
+  def server[F[_]: Async: GenFiberLocal: Network]: Resource[F, Server] =
     for {
       ep <- entryPoint[F]
       connectionF <- RedisConnectionMiddleware.pooled(RedisConnection.pool, RedisConnectionMiddleware.logFullStatement)
-      app = ServerMiddleware.httpApp(ep){implicit T: natchez.Trace[F] => 
+      app = ServerMiddleware.default(ep).buildHttpApp{implicit T: natchez.Trace[F] => 
         val connection = connectionF(T)
         routes(connection).orNotFound
       }

@@ -10,23 +10,23 @@ ThisBuild / tlCiReleaseBranches := Seq("main")
 ThisBuild / tlSonatypeUseLegacyHost := true
 
 
-val Scala213 = "2.13.7"
+val Scala213 = "2.13.11"
 
-ThisBuild / crossScalaVersions := Seq("2.12.15", Scala213, "3.1.2")
+ThisBuild / crossScalaVersions := Seq("2.12.18", Scala213, "3.3.0")
 ThisBuild / scalaVersion := Scala213
 
 ThisBuild / testFrameworks += new TestFramework("munit.Framework")
 
-val catsV = "2.7.0"
-val catsEffectV = "3.3.11"
-val fs2V = "3.2.7"
-val http4sV = "0.23.11"
-val circeV = "0.14.1"
-val natchezV = "0.1.4"
-val rediculousV = "0.3.0"
+val catsV = "2.9.0"
+val catsEffectV = "3.5.0"
+val fs2V = "3.7.0"
+val http4sV = "0.23.19"
+val circeV = "0.14.5"
+val natchezV = "0.3.2"
+val rediculousV = "0.5.0"
 val munitCatsEffectV = "1.0.7"
 
-val slf4jV    = "1.7.30"
+val slf4jV    = "1.7.36"
 
 
 // Projects
@@ -63,7 +63,7 @@ lazy val examples = project.in(file("examples"))
     scalacOptions        -= "-Xfatal-warnings",
     libraryDependencies ++= Seq(
       "org.tpolecat" %% "natchez-jaeger"      % natchezV,
-      "io.chrisdavenport" %% "natchez-http4s-otel" % "0.0.1",
+      "io.chrisdavenport" %% "natchez-http4s-otel" % "0.3.0-RC1",
       "org.http4s"   %% "http4s-dsl"          % http4sV,
       "org.http4s"   %% "http4s-ember-server" % http4sV,
       "org.slf4j"     % "slf4j-simple"        % slf4jV,

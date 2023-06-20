@@ -67,17 +67,17 @@ object OTDBTags {
   // https://github.com/open-telemetry/opentelemetry-specification/blob/a50def370ef444029a12ea637769229768daeaf8/specification/trace/semantic_conventions/exceptions.md
   object Errors {
     def error(e: Throwable): List[(String, TraceValue)] = {
-      val error = ("error", TraceValue.boolToTraceValue(true)).some
+      val error = ("error", natchez.TraceableValue[Boolean].toTraceValue(true)).some
       val message: Option[(String, TraceValue)] = Option(e.getMessage()).map(m => "exception.message" -> m)
       val className: Option[(String, TraceValue)] = Option(e.getClass()).flatMap(c => Option(c.getName())).map(c => "exception.type" -> c)
-      val stacktrace = ("exception.stacktrace" -> TraceValue.stringToTraceValue(ErrorHelpers.printStackTrace(e))).some
+      val stacktrace = ("exception.stacktrace" -> natchez.TraceableValue[String].toTraceValue(ErrorHelpers.printStackTrace(e))).some
       List(error, message, className, stacktrace).flatten // List[Option[A]] => List[A] using internal speedery
     }
 
     def outcome[F[_], A](outcome: Outcome[F, Throwable, A]): List[(String, TraceValue)] = outcome match {
       case Canceled() => 
         List("exit.case" -> "canceled")
-      case Errored(e) => "exit.case" -> TraceValue.stringToTraceValue("errored") :: error(e)
+      case Errored(e) => "exit.case" -> natchez.TraceableValue[String].toTraceValue("errored") :: error(e)
       case Succeeded(_) => List("exit.case" -> "succeeded")
     }
   }
