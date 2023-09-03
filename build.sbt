@@ -26,7 +26,7 @@ val natchezV = "0.3.2"
 val rediculousV = "0.5.0"
 val munitCatsEffectV = "1.0.7"
 
-val slf4jV    = "1.7.36"
+val slf4jV    = "2.0.9"
 
 
 // Projects
