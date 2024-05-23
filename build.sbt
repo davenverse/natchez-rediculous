@@ -24,7 +24,7 @@ val http4sV = "0.23.19"
 val circeV = "0.14.5"
 val natchezV = "0.3.2"
 val rediculousV = "0.5.0"
-val munitCatsEffectV = "1.0.7"
+val munitCatsEffectV = "2.0.0"
 
 val slf4jV    = "1.7.36"
 
@@ -49,7 +49,7 @@ lazy val core = crossProject(JVMPlatform, JSPlatform)
 
       "io.chrisdavenport"           %%% "rediculous"                 % rediculousV,
       "org.tpolecat"                %%% "natchez-core"               % natchezV,
-      "org.typelevel"               %%% "munit-cats-effect-3"        % munitCatsEffectV         % Test,
+      "org.typelevel"               %%% "munit-cats-effect"        % munitCatsEffectV         % Test,
 
     )
   ).jsSettings(
