@@ -49,7 +49,7 @@ lazy val core = crossProject(JVMPlatform, JSPlatform)
 
       "io.chrisdavenport"           %%% "rediculous"                 % rediculousV,
       "org.tpolecat"                %%% "natchez-core"               % natchezV,
-      "org.typelevel"               %%% "munit-cats-effect".         % munitCatsEffectV         % Test,
+      "org.typelevel"               %%% "munit-cats-effect"          % munitCatsEffectV         % Test,
 
     )
   ).jsSettings(
