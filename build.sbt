@@ -1,4 +1,4 @@
-ThisBuild / tlBaseVersion := "0.1" // your current series x.y
+ThisBuild / tlBaseVersion := "0.2" // your current series x.y
 
 ThisBuild / organization := "io.chrisdavenport"
 ThisBuild / organizationName := "Christopher Davenport"
@@ -10,20 +10,20 @@ ThisBuild / tlCiReleaseBranches := Seq("main")
 ThisBuild / tlSonatypeUseLegacyHost := true
 
 
-val Scala213 = "2.13.11"
+val Scala213 = "2.13.14"
 
-ThisBuild / crossScalaVersions := Seq("2.12.18", Scala213, "3.3.0")
+ThisBuild / crossScalaVersions := Seq("2.12.19", Scala213, "3.4.2")
 ThisBuild / scalaVersion := Scala213
 
 ThisBuild / testFrameworks += new TestFramework("munit.Framework")
 
-val catsV = "2.9.0"
-val catsEffectV = "3.5.0"
-val fs2V = "3.7.0"
-val http4sV = "0.23.19"
-val circeV = "0.14.5"
-val natchezV = "0.3.2"
-val rediculousV = "0.5.0"
+val catsV = "2.11.0"
+val catsEffectV = "3.5.4"
+val fs2V = "3.10.2"
+val http4sV = "0.23.27"
+val circeV = "0.14.9"
+val natchezV = "0.3.5"
+val rediculousV = "0.6.0-M1"
 val munitCatsEffectV = "2.0.0"
 
 val slf4jV    = "1.7.36"
@@ -49,7 +49,7 @@ lazy val core = crossProject(JVMPlatform, JSPlatform)
 
       "io.chrisdavenport"           %%% "rediculous"                 % rediculousV,
       "org.tpolecat"                %%% "natchez-core"               % natchezV,
-      "org.typelevel"               %%% "munit-cats-effect"        % munitCatsEffectV         % Test,
+      "org.typelevel"               %%% "munit-cats-effect".         % munitCatsEffectV         % Test,
 
     )
   ).jsSettings(
