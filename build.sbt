@@ -9,19 +9,19 @@ ThisBuild / developers := List(
 ThisBuild / tlCiReleaseBranches := Seq()
 val Scala213 = "2.13.18"
 
-ThisBuild / crossScalaVersions := Seq("2.12.19", Scala213, "3.4.2")
+ThisBuild / crossScalaVersions := Seq(Scala213, "3.3.8")
 ThisBuild / scalaVersion := Scala213
 
 ThisBuild / testFrameworks += new TestFramework("munit.Framework")
 
-val catsV = "2.11.0"
-val catsEffectV = "3.5.4"
-val fs2V = "3.10.2"
-val http4sV = "0.23.27"
+val catsV = "2.13.0"
+val catsEffectV = "3.7.1"
+val fs2V = "3.14.0"
+val http4sV = "0.23.37"
 val circeV = "0.14.9"
-val natchezV = "0.3.5"
-val rediculousV = "0.6.0-M1"
-val munitCatsEffectV = "2.0.0-M4"
+val natchezV = "0.3.10"
+val rediculousV = "0.6.0"
+val munitCatsEffectV = "2.2.1"
 
 val slf4jV    = "1.7.36"
 
